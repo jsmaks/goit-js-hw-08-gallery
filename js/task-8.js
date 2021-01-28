@@ -44,7 +44,7 @@ function onImgClick(event) {
     event.preventDefault();
     if (event.target.nodeName !== 'IMG') return;
     const getLink = event.target.dataset.source;
-    console.dir(lightboxRef);
+
     ligthboxImage.src = getLink;
     lightboxRef.classList.add('is-open')
 }
