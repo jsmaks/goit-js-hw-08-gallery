@@ -1,0 +1,22 @@
+{
+  "name": "goit-js-hw-09",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "hello": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsmaks/goit-js-hw-08-gallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsmaks/goit-js-hw-08-gallery/issues"
+  },
+  "homepage": "https://github.com/jsmaks/goit-js-hw-08-gallery#readme",
+  "dependencies": {
+    "validator": "^13.5.2"
+  }
+}
