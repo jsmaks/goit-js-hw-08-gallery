@@ -7,8 +7,11 @@ const galleryRef = document.querySelector('.js-gallery');
 const lightboxRef = document.querySelector('.lightbox')
 const lightboxButton = document.querySelector('.lightbox__button');
 const ligthboxImage = document.querySelector('.lightbox__image');
-// const galleryImage = document.querySelector('.gallery__image');
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Создание эелемнтов. Функции
+//////////////////////////////////////////////////////////////////////////////////////////////////
 const createImg = elem => {
 
     const imgRef = document.createElement('img');
@@ -36,25 +39,60 @@ const createList = elem => {
     return liRef;
 }
 const listsEl = gallery_items.map(img => createList(img));
-galleryRef.append(...listsEl);
-
-
+galleryRef.append(...listsEl)
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 galleryRef.addEventListener('click', onImgClick);
 function onImgClick(event) {
     event.preventDefault();
     if (event.target.nodeName !== 'IMG') return;
     const getLink = event.target.dataset.source;
-
+    // const getIndex = event.target.dataset.index;
     ligthboxImage.src = getLink;
-    lightboxRef.classList.add('is-open')
-}
+    lightboxRef.classList.add('is-open');
+    document.addEventListener('keydown', closeImgRef)
+
+};
+
+
+
 
 lightboxButton.addEventListener('click', onButtonClick);
 function onButtonClick(event) {
     if (!event.target.nodeName === 'BUTTON') return;
     ligthboxImage.src = '';
     lightboxRef.classList.remove('is-open')
+
 };
+
+const closeImgRef = event => {
+    console.log(event);
+    if (event.code === 'Escape') {
+        lightboxRef.classList.remove('is-open');
+        document.removeEventListener('keydown', closeImgRef);
+        return;
+    }
+
+}
+// const slideImgRef = event => {
+
+
+
+//     if (event.code === 'ArrowRight') {
+//         const podmena = event.target.href;
+//         const f = event.target.firstChild
+//         const ind = Number(f.dataset.index);
+
+//         const indexT = document.querySelector(`[data-index="${ind + 1}"]`)
+//         const nextPageRef = indexT.dataset.source;
+//         ligthboxImage.src = nextPageRef;
+
+//         return ligthboxImage.src;
+//     }
+
+
+// }
+
 
 
 
